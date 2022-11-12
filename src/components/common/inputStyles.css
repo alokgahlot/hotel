@@ -1,0 +1,116 @@
+.inputContainer {
+    width: 100%;
+margin: 10%;
+}
+
+.labelStyles {
+margin-top: 10px;
+color: aliceblue;
+font-size: 2vh;
+font-weight: bold;
+background-color:dimgray;
+width: 80%;
+padding: 1vh;
+border-radius: 0.6vh;
+}
+
+.inputField{
+ background-color: transparent;
+border-color: black;
+width: 80%;
+padding : 1vh 4vw;
+color: black;
+transition: background-color 1s ease-out 100ms;
+transition: border-color 1s ease-out 100ms;
+transition: border-width 1s ease-out 100ms;
+border-radius: 0.6vh;
+border-width: 0px 0px 2px 0px;
+}
+
+.inputField:focus{
+    color: black;
+    border-width: 0px 0px 2px 0px;
+}
+
+.inputField:hover{
+
+ background-color:ghostwhite;
+ color: black;
+ border-color:aqua;
+ border-width: 2px 2px 2px 2px;
+
+}
+
+.loginButton{
+    background-color:ghostwhite;
+    color: black;
+    border-color:black;
+   padding: 1vh 1.5vw;
+   border-radius: 5vh;
+   width: 80%;
+   margin: auto;
+   margin-bottom: 10%;
+   display: flex;
+   align-self: center;
+   justify-content: center;
+transition: border-color 1s ease-out 100ms;
+transition: font-weight 0.5s linear 100ms;
+    
+}
+
+.loginButton:hover{
+    background-color:ghostwhite;
+    color: black;
+    border-color:aqua; 
+    font-weight: bold;
+}
+
+.leftIcon{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+   margin: 1vh;
+}
+
+.righIcon{
+    width: 30px;
+    height: 30px;
+    margin-left: -40px;
+}
+
+
+@media only screen and (max-width: 768px) {
+   
+    .inputField{
+width: 200%;
+align-self: center;
+margin-left: -17vw;
+padding: 1vh 10vw;
+    }
+
+    .labelStyles{
+        width: 200%;
+        align-self: center;
+margin-left: -17vw;
+margin-top: 3.5vh;
+
+            }
+            .loginButton{
+                width: 220%;
+                align-self: center;
+        margin-left: -17vw;
+margin-top: 5.5vh;
+
+            }
+
+            .leftIcon{
+margin-left: -16vw;
+
+            }
+
+            .righIcon{
+                margin-left: 27vw;
+                margin-top: -8vh;
+                            }
+
+   }

@@ -1,41 +1,58 @@
-import React from 'react'
-import CommonStyles from '../../commonStyles'
+import React, { useState } from 'react'
 import { styles } from './styles'
-import AutoTyping, { BlinkCursor } from 'react-auto-typing'
-import { LOCAL_STRINGS } from '../../constants/strings'
 import InputFIeld from '../common/InputFIeld'
-const { hotelBW } = require('../../assets')
+import './loginStyle.css'
+import CustomButton from '../common/CustomButton'
+const {  loginIcon, emailIcon, lockIcon, phoneIcon, hiddenIcon, eyeIcon } = require('../../assets')
 
 export default function Login() {
+
+    const [count, setcount] = useState(0); 
+    const [isPasswordVisible, setIsPasswordVisible] = useState(true)
+
+const onPress=()=>{
+    setcount(count + 1)
+}
+
+const onPressRightIcon=()=>{
+    setIsPasswordVisible(!isPasswordVisible)
+}
     return (
         <div style={{
-            ...CommonStyles.fullBackgroundImage, ...{ backgroundImage: 'url(' + hotelBW + ')', }
-        }}>
-            <div style={CommonStyles.whiteContainer} >
-                <div style={styles.leftContainer} >
-                    <AutoTyping
-                        active
-                        textRef={LOCAL_STRINGS.tagLine}
-                        writeSpeed={150}
-                        deleteSpeed={150}
-                        delayToWrite={1000}
-                        delayToDelete={2000}
-                    />
-                    <BlinkCursor
-                        active
-                        blinkSpeed={500}
-                    />
-                </div>
+            display:'flex', 
+           justifyContent:'center', 
+            alignItems:'center', 
+            height:'90vh',
+        //    backgroundColor:'#e6f2ff',
+        
+        }} >
+            <div  className='mainContainer' >
+                    <img src={loginIcon} className='loginIcon' alt="" />
                 <div style={styles.formContainer} >
                     <form method='post' >
-                        <InputFIeld />
-                        <InputFIeld />
-                        <InputFIeld />
-                        <InputFIeld />
+                        <InputFIeld label='Email'
+                        leftIcon={emailIcon}
+                         />
+
+                         <InputFIeld label='Phone' 
+                        leftIcon={phoneIcon}
+                        />
+                        <InputFIeld label='Password' 
+                        leftIcon={lockIcon}
+                        rightIcon={isPasswordVisible ? hiddenIcon : eyeIcon}
+                        onPressRightIcon={onPressRightIcon}
+                        isPasswordVisible={isPasswordVisible}
+                        />
 
                     </form>
+               <CustomButton
+               label='Login Here 🗝️'
+               onPress={onPress}
+               />
                 </div>
             </div>
+
+         
 
         </div >
     )

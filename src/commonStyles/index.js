@@ -10,13 +10,11 @@ const CommonStyles = {
         justifyContent: 'center',
     },
     whiteContainer: {
-        width: '90vw',
-        height: '50vh',
+        width: '50vw',
+        height: 'auto',
         backgroundColor: 'white',
         paddingVertical: '10vh',
-        // justifyContent: 'center',
-        boxShadow: "3px 3px 3px skyblue",
-        display: 'flex'
+        boxShadow: "10px 6px 13px skyblue",
     },
 };
 

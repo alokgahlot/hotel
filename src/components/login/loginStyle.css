@@ -1,0 +1,27 @@
+.loginIcon{
+    width: 30%;
+    display: flex;
+    margin: auto;
+    padding: auto;
+    margin-top: 10%;
+}
+
+.mainContainer{
+    width: 50vw;
+    height: auto;
+    border-color: white;
+    padding: 0 10vh;
+    box-shadow: 10px 6px 13px skyblue;
+    border-radius: 3vh;
+}
+
+@media only screen and (max-width: 768px) {
+   .loginIcon{
+    width: 90%;
+    display: block;
+    margin-top: 10%;
+   }
+   .mainContainer{
+    width: 70%;
+   }
+  }
