@@ -1,5 +1,4 @@
-import React,{useState} from 'react'
-import {  eyeIcon, hiddenIcon } from '../../assets'
+import React from 'react'
 import './inputStyles.css'
 
 export default function InputFIeld(props) {
@@ -13,10 +12,14 @@ export default function InputFIeld(props) {
 
     return (
         <div className='inputContainer' >
+        <p className='errorMessage' >{props.errorMessage}</p>
         <div>
             <img src={props.leftIcon} alt="" className='leftIcon' />
         <input className='inputField' type={getType()} 
         placeholder={props?.label}
+        value={props?.value}
+        onChange={props?.onChange}
+        onBlurCapture={props?.onBlur}
         />
          
 {

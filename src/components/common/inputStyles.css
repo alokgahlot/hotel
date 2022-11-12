@@ -77,6 +77,10 @@ transition: font-weight 0.5s linear 100ms;
     height: 30px;
     margin-left: -40px;
 }
+.errorMessage{
+    color: red;
+    margin: auto;
+}
 
 
 @media only screen and (max-width: 768px) {
