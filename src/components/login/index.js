@@ -4,11 +4,10 @@ import InputFIeld from '../common/InputFIeld'
 import './loginStyle.css'
 import CustomButton from '../common/CustomButton'
 import { ValidateEmail, validatePassword, validatePhone } from '../../utils/validators'
+import { ApiFunctions } from '../../apis'
 const {  loginIcon, emailIcon, lockIcon, phoneIcon, hiddenIcon, eyeIcon } = require('../../assets')
 
 export default function Login() {
-
-    const [count, setcount] = useState(0); 
     const [isPasswordVisible, setIsPasswordVisible] = useState(true)
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')
@@ -17,8 +16,11 @@ const [showEmailErr, setShowEmailErr] = useState('')
 const [showPhoneErr, setShowPhoneErr] = useState('')
 const [showPasswordErr, setShowPasswordErr] = useState('')
 
-const onPress=()=>{
-    setcount(count + 1)
+const onPress= async ()=>{
+ const response= await ApiFunctions.doLogin(
+    {email, phone, password}
+   )
+   console.log(response ,"response")
 }
 
 const onPressRightIcon=()=>{
@@ -43,7 +45,6 @@ if(fieldName === ''){
 
   const isDisabled=()=>{
        if( (phone.length === 0 && email.length ===0 ) || password.length === 0 || showPasswordErr.length!==0 || showEmailErr.length!==0 || showPhoneErr.length!==0 ){
-        console.log('here 2')
           return true
       }
       else{ return false } 

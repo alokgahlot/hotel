@@ -2,7 +2,6 @@ import React from 'react'
 import './inputStyles.css';
 
 export default function CustomButton(props) {
-  console.log(props?.disabled,"djdj")
   return (
    <button className='loginButton' 
    style={{

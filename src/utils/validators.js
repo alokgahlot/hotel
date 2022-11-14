@@ -21,3 +21,10 @@ export function validatePassword(password){
     return false
 }
 
+export function commonValidation(regex, value){
+    if(regex.test(value)){
+        return true
+    }
+    return false
+}
+
