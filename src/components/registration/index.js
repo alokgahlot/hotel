@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { styles } from './styles'
 import InputFIeld from '../common/InputFIeld'
 import './regisStyles.css'
@@ -6,6 +6,7 @@ import CustomButton from '../common/CustomButton'
 import { commonValidation } from '../../utils/validators'
 import { ApiFunctions } from '../../apis'
 import { reg } from '../../utils/regex'
+import Toast from '../common/Toast'
 const {   emailIcon, lockIcon, phoneIcon, hiddenIcon, eyeIcon, registrationIcon, userIcon, locationIcon } = require('../../assets')
 
 export default function Login() {
@@ -20,12 +21,13 @@ const [showPhoneErr, setShowPhoneErr] = useState('')
 const [showPasswordErr, setShowPasswordErr] = useState('')
 const [showUsernameErr, setShowUsernameErr] = useState('')
 const [showAddressErr, setShowAddressErr] = useState('')
+const [response, setResponse]=useState(''); 
 
 const onPress= async ()=>{
- const response= await ApiFunctions.doRegister(
+ const resp= await ApiFunctions.doRegister(
     {email, password,name : username,address,phone}
    )
-   console.log(response ,"response")
+   setResponse(resp)
 }
 
 const onPressRightIcon=()=>{
@@ -68,6 +70,10 @@ if(fieldName === ''){
             <div  className='mainContainer' >
                     <img src={registrationIcon} className='loginIcon' alt="" />
                 <div style={styles.formContainer} >
+                    <Toast
+                    message={response?.response?.message}
+                    type={response?.response?.success}
+                     />
                     <form method='post' >
                          <InputFIeld label='Username'
                         leftIcon={userIcon}

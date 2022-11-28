@@ -30,6 +30,11 @@ border-width: 0px 0px 2px 0px;
 .inputField:focus{
     color: black;
     border-width: 0px 0px 2px 0px;
+    background-color: transparent;
+    border-color: black;
+    /* width: 80%; */
+    /* padding : 1vh 4vw; */
+    border-radius: 0.6vh;
 }
 
 .inputField:hover{
